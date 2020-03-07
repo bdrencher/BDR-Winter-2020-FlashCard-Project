@@ -1,7 +1,7 @@
 .contentBox {
-    display:block;
-    width: 35%;
-    height: 20%;
+    display:grid;
+    grid-template-columns: auto auto;
+    column-gap: 5%;
     border-style: solid;
     border-width: 3px;
     border-color: seagreen;
