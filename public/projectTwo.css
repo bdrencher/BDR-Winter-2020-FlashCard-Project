@@ -7,3 +7,11 @@
     border-color: seagreen;
     border-radius: 5px;
 }
+
+#questionBox {
+    grid-column: 1;
+}
+
+#answerBox {
+    grid-column: 2;
+}
