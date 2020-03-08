@@ -1,11 +1,14 @@
 .contentBox {
-    display:grid;
-    grid-template-columns: auto auto;
-    column-gap: 5%;
     border-style: solid;
     border-width: 3px;
     border-color: seagreen;
     border-radius: 5px;
+}
+
+#contentGrid {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    column-gap: 5%;
 }
 
 #questionBox {
