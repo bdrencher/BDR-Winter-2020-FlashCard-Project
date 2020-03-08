@@ -3,6 +3,7 @@
     border-width: 3px;
     border-color: seagreen;
     border-radius: 5px;
+    height: 25%;
 }
 
 #contentGrid {
@@ -17,4 +18,9 @@
 
 #answerBox {
     grid-column: 2;
+}
+
+#contentButton {
+    margin-left: 60%;
+
 }
