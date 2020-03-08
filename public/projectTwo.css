@@ -3,12 +3,12 @@
     border-width: 3px;
     border-color: seagreen;
     border-radius: 5px;
-    height: 25%;
 }
 
 #contentGrid {
     display: grid;
     grid-template-columns: 40% 40%;
+    grid-template-rows: 25%;
     column-gap: 5%;
 }
 
@@ -20,7 +20,6 @@
     grid-column: 2;
 }
 
-#contentButton {
+#contentButtons {
     margin-left: 60%;
-
 }
