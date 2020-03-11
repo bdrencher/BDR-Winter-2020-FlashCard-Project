@@ -8,17 +8,6 @@ const clientPool = new Pool({connectionString: connectionString});
 const port = process.env.PORT || 8080;
 app.listen(port);
 
-//test query
-const query = "INSERT INTO test VALUES ('testName')";
-clientPool.query(query, function (error, response) {
-    if (error)
-    {
-        console.log(error);
-    }
-
-    console.log("after error if block");
-});
-
 app.use(express.static(__dirname + '/public'));
 
 app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
