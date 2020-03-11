@@ -9,7 +9,7 @@ const port = process.env.PORT || 8080;
 app.listen(port);
 
 //test query
-const query = "INSERT INTO name VALUES ('testName')";
+const query = "INSERT INTO test VALUES ('testName')";
 clientPool.query(query, function (error, response) {
     if (error)
     {
