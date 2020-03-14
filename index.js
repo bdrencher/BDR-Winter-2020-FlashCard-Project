@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 
@@ -12,3 +14,25 @@ app.use(express.static(__dirname + '/public'));
 
 app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
+
+// Database queries
+/**************************************************
+ * What user information I need for making queries
+ * - user id
+***************************************************/
+const addTestParameters = ["text for another test question", "one", "two", "three", "four", 3];
+const addQuery = "INSERT INTO questions (questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6)";
+clientPool.query(addQuery, addTestParameters, function (error, response){
+    if (error){
+        console.log(error);
+    }
+    else {
+        console.log(response);
+    }
+});
+
+const retrieveQuery = "SELECT * FROM questions WHERE id = $1";
+
+const updateQuery = "UPDATE question SET questionText = $1, answerOneText = $2, answerTwoText = $3, answerThreeText = $4, answerFourText = $5, correctAnswer = $6 WHERE id = $7";
+
+const deleteQuery = "DELETE FROM userQuestions WHERE user_id = $1 AND question_id = $2";
