@@ -20,9 +20,9 @@ app.post('/addQuestion', addQuestion);
 
 app.get('/getQuestion', getQuestion);
 
-app.put('/updateQuestion', updateQuestion);
+// app.put('/updateQuestion', updateQuestion);
 
-app.delete('/deleteQuestion', deleteQuestion);
+// app.delete('/deleteQuestion', deleteQuestion);
 
 // --   query call back definitions   --
 
@@ -124,15 +124,15 @@ function getQuestionFromDb(parameters, callback)
 /**************************************************
  * UPDATE QUESTION
  **************************************************/
-function updateQuestion (request, response)
-{
-    const 
-}
+// function updateQuestion (request, response)
+// {
+//     const 
+// }
 
-function deleteQuestion (request, response)
-{
+// function deleteQuestion (request, response)
+// {
 
-}
+// }
 
 /**************************************************
  * TESTS
@@ -150,8 +150,8 @@ function deleteQuestion (request, response)
 //     }
 // });
 
-const retrieveQuery = "SELECT * FROM questions WHERE id = $1";
+// const retrieveQuery = "SELECT * FROM questions WHERE id = $1";
 
-const updateQuery = "UPDATE question SET questionText = $1, answerOneText = $2, answerTwoText = $3, answerThreeText = $4, answerFourText = $5, correctAnswer = $6 WHERE id = $7";
+// const updateQuery = "UPDATE question SET questionText = $1, answerOneText = $2, answerTwoText = $3, answerThreeText = $4, answerFourText = $5, correctAnswer = $6 WHERE id = $7";
  
-const deleteQuery = "DELETE FROM userQuestions WHERE user_id = $1 AND question_id = $2";
+// const deleteQuery = "DELETE FROM userQuestions WHERE user_id = $1 AND question_id = $2";
