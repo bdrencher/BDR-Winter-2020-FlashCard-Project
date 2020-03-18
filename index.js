@@ -15,24 +15,124 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
 
-// Database queries
+// --   Database queries   --
+app.post('/addQuestion', addQuestion);
+
+app.get('/getQuestion', getQuestion);
+
+app.put('/updateQuestion', updateQuestion);
+
+app.delete('/deleteQuestion', deleteQuestion);
+
+// --   query call back definitions   --
+
+/************************************
+ * ADD QUESTION
+ ************************************/
+function addQuestion (request, response)
+{
+    // get parameters
+    const questionText  = request.query.questionText;
+    const answerOne     = request.query.answerOne;
+    const answerTwo     = request.query.answerTwo;
+    const answerThree   = request.query.answerThree;
+    const answerFour    = request.query.answerFour;
+    const correctAnswer = request.query.correctAnswer;
+
+    const parameters = [questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
+
+    addQuestionToDb(parameters, function(error, result) {
+        if (error || result == null)
+        {
+            console.log("Error adding question to the database");
+            response.status(500).json({success: false, data: error});
+        }
+        else
+        {
+            response.status(200).json({success: true});
+        }
+    });
+}
+
+function addQuestionToDb(parameters, callback)
+{
+    console.log("adding question to DB")
+    console.log(parameters);
+
+    const sql = "INSERT INTO questions (questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6)";
+
+    clientPool.query(sql, parameters, function(error, result) {
+        if (error)
+        {
+            console.log("error in query: ");
+            console.log(error);
+            callback(error, null);
+        }
+
+        callback(null, result);
+    });
+}
+// ---- END ADD QUESTION FUNCTIONS --------
+
+/**************************************
+ * GET QUESTION
+ **************************************/
+function getQuestion (request, response)
+{
+    const questionId = request.query.id;
+
+    const parameters = [questionId];
+
+    getQuestionFromDb(parameters, function (error, result) {
+        if (error || result == null)
+        {
+            console.log("Error getting question from the database:");
+            response.status(500).json({success: false, data: error});
+        }
+        else
+        {
+            response.status(200).json({success: true});
+        }
+
+        const sql = "SELECT * FROM questions WHERE id = $1";
+
+        clientPool.query(sql, parameters, function (error, result) {
+            if (error)
+            {
+                conso
+            }
+        });
+    });
+}
+
+function updateQuestion (request, response)
+{
+
+}
+
+function deleteQuestion (request, response)
+{
+
+}
+
 /**************************************************
+ * TESTS
  * What user information I need for making queries
  * - user id
 ***************************************************/
-const addTestParameters = ["text for another test question", "one", "two", "three", "four", 3];
-const addQuery = "INSERT INTO questions (questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6)";
-clientPool.query(addQuery, addTestParameters, function (error, response){
-    if (error){
-        console.log(error);
-    }
-    else {
-        console.log(response);
-    }
-});
+// const addTestParameters = ["text for another test question", "one", "two", "three", "four", 3];
+// const addQuery = "INSERT INTO questions (questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6)";
+// clientPool.query(addQuery, addTestParameters, function (error, response){
+//     if (error){
+//         console.log(error);
+//     }
+//     else {
+//         console.log(response);
+//     }
+// });
 
 const retrieveQuery = "SELECT * FROM questions WHERE id = $1";
 
 const updateQuery = "UPDATE question SET questionText = $1, answerOneText = $2, answerTwoText = $3, answerThreeText = $4, answerFourText = $5, correctAnswer = $6 WHERE id = $7";
-
+ 
 const deleteQuery = "DELETE FROM userQuestions WHERE user_id = $1 AND question_id = $2";
