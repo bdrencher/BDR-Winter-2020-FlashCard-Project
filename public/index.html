@@ -20,27 +20,34 @@
 
         <div id="contentButtons">
             <button class="actionButton">Submit Answer</button>
-            <button class="actionButton">Skip</button>
+            <button class="actionButton">Next</button>
         </div>
         
         <h3>Add a question</h3>
 
-        <label for="questionText">Enter the question text:</label>
-        <input type="textarea" id="questionTextInput" name="questionText">
+        <form action="/addQuestion" method='post'>
+            <label for="questionText">Enter the question text:</label>
+            <input type="textarea" id="questionTextInput" name="questionText">
 
-        <label for="firstAnswer">Answer 1:</label>
-        <input type="text" id="firstAnswerInput" name="firstAnswer">
+            <label for="firstAnswer">Answer 1:</label>
+            <input type="text" id="firstAnswerInput" name="firstAnswer">
 
-        <label for="secondAnswer">Answer 2:</label>
-        <input type="text" id="secondAnswerInput" name="secondAnswer">
+            <label for="secondAnswer">Answer 2:</label>
+            <input type="text" id="secondAnswerInput" name="secondAnswer">
 
-        <label for="thirdAnswer">Answer 3:</label>
-        <input type="text" id="thirdAnswerInput" name="thirdAnswer">
+            <label for="thirdAnswer">Answer 3:</label>
+            <input type="text" id="thirdAnswerInput" name="thirdAnswer">
 
-        <label for="fourthAnswer">Answer 4:</label>
-        <input type="text" id="fourthAnswerInput" name="fourthAnswer">
+            <label for="fourthAnswer">Answer 4:</label>
+            <input type="text" id="fourthAnswerInput" name="fourthAnswer">
 
-        <button class="actionButton">Add question</button>
+            <input type="radio" value="1" name="correctAnswer">
+            <input type="radio" value="2" name="correctAnswer">
+            <input type="radio" value="3" name="correctAnswer">
+            <input type="radio" value="4" name="correctAnswer">
+
+            <button class="actionButton">Add question</button>
+        </form>
 
         <select id="questionDropdown">
         <option value=none>please select a question to edit or delete</option>

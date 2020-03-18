@@ -33,10 +33,10 @@ function addQuestion (request, response)
 {
     // get parameters
     const questionText  = request.query.questionText;
-    const answerOne     = request.query.answerOne;
-    const answerTwo     = request.query.answerTwo;
-    const answerThree   = request.query.answerThree;
-    const answerFour    = request.query.answerFour;
+    const answerOne     = request.query.firstAnswer;
+    const answerTwo     = request.query.secondAnswer;
+    const answerThree   = request.query.thirdAnswer;
+    const answerFour    = request.query.fourthAnswer;
     const correctAnswer = request.query.correctAnswer;
 
     const parameters = [questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
@@ -49,7 +49,7 @@ function addQuestion (request, response)
         }
         else
         {
-            response.status(200).json({success: true});
+            response.status(200).json({success: true, data: result});
         }
     });
 }
@@ -67,9 +67,13 @@ function addQuestionToDb(parameters, callback)
             console.log("error in query: ");
             console.log(error);
             callback(error, null);
+        } 
+        else 
+        {
+            callback(null, result);
         }
 
-        callback(null, result);
+
     });
 }
 // ---- END ADD QUESTION FUNCTIONS --------
@@ -91,23 +95,38 @@ function getQuestion (request, response)
         }
         else
         {
-            response.status(200).json({success: true});
+            response.status(200).json({success: true, data: result});
         }
-
-        const sql = "SELECT * FROM questions WHERE id = $1";
-
-        clientPool.query(sql, parameters, function (error, result) {
-            if (error)
-            {
-                conso
-            }
-        });
     });
 }
 
+function getQuestionFromDb(parameters, callback)
+{
+    console.log("Retrieving question data with ID: ");
+    console.log(parameters);
+    
+    const sql = "SELECT * FROM questions WHERE id = $1";
+
+    clientPool.query(sql, parameters, function (error, result) {
+        if (error)
+        {
+            console.log("an error has occured retrieving the question:");
+            console.log(error);
+            callback(error, null);
+        }
+        else
+        {
+            callback(null, result);
+        }
+    });
+}
+
+/**************************************************
+ * UPDATE QUESTION
+ **************************************************/
 function updateQuestion (request, response)
 {
-
+    const 
 }
 
 function deleteQuestion (request, response)
