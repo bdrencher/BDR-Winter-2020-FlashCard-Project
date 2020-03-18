@@ -40,6 +40,7 @@ function addQuestion (request, response)
     const correctAnswer = request.query.correctAnswer;
 
     const parameters = [questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
+    console.log(parameters);
 
     addQuestionToDb(parameters, function(error, result) {
         if (error || result == null)
