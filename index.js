@@ -52,17 +52,12 @@ function addQuestion (request, response)
             console.log("Error adding question to the database");
             response.status(500).json({success: false, data: error});
         }
-        else
-        {
-            response.status(200).json({success: true, data: result});
-        }
     });
 }
 
 function addQuestionToDb(parameters, callback)
 {
     console.log("adding question to DB")
-    console.log(parameters);
 
     const sql = "INSERT INTO questions (questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6)";
 
