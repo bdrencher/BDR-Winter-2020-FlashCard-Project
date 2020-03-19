@@ -3,6 +3,10 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+// the bodyParser 
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
+
 const connectionString = process.env.DATABASE_URL;
 const { Pool } = require('pg');
 const clientPool = new Pool({connectionString: connectionString});
