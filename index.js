@@ -54,7 +54,7 @@ function addQuestion (request, response)
         }
         else
         {
-            response.status(200);
+            response.status(200).json({success: true});
         }
     });
 }
