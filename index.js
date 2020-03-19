@@ -52,6 +52,10 @@ function addQuestion (request, response)
             console.log("Error adding question to the database");
             response.status(500).json({success: false, data: error});
         }
+        else
+        {
+            response.status(200);
+        }
     });
 }
 
