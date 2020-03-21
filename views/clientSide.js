@@ -30,3 +30,8 @@ function updateAQuestion()
 {
     $.put('/updateQuestion');
 }
+
+function getAQuestion()
+{
+    $.get('/getQuestion');
+}

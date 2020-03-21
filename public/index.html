@@ -25,7 +25,7 @@
 
         <div id="contentButtons">
             <button class="actionButton">Submit Answer</button>
-            <button class="actionButton">Next</button>
+            <button class="actionButton" onclick="getAQuestion()">Next</button>
         </div>
         
         <h3>Add a question</h3>
@@ -56,8 +56,8 @@
 
         <select id="questionDropdown">
         <option value=none>please select a question to edit or delete</option>
-        <button class="actionButton">Edit question</button>
-        <button class="actionButton">Delete question</button>
+        <button class="actionButton" onclick="updateAQuestion()">Edit question</button>
+        <button class="actionButton" onclick="deleteAQuestion()">Delete question</button>
 
 
     </body>
