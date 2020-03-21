@@ -23,9 +23,6 @@ app.set('view engine', 'ejs');
 // --   Database queries   --
 app.post('/addQuestion', function (req, res) {
     controller.addQuestion(req, res);
-    console.log("this is testing the POST request for add question");
-    console.log(req.body);
-    res.send("successful POST");
 });
 
 app.get('/getQuestion', function (req, res) {
