@@ -5,13 +5,19 @@ module.exports = {
     updateQuestionInDb: updateQuestionInDb
 }
 
+const { Pool } = require("pg");
+
+const db_url = process.env.DATABASE_URL;
+
+const pool = new Pool({connectionString: db_url});
+
 function addQuestionToDb(parameters, callback)
 {
     console.log("adding question to DB")
 
     const sql = "INSERT INTO questions (questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6)";
 
-    clientPool.query(sql, parameters, function(error, result) {
+    pool.query(sql, parameters, function(error, result) {
         if (error)
         {
             console.log("error in query: ");
@@ -37,7 +43,7 @@ function getQuestionFromDb(parameters, callback)
     
     const sql = "SELECT * FROM questions WHERE id = $1";
 
-    clientPool.query(sql, parameters, function (error, result) {
+    pool.query(sql, parameters, function (error, result) {
         if (error)
         {
             console.log("an error has occured retrieving the question:");

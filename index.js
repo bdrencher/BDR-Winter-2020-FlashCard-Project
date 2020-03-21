@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 const connectionString = process.env.DATABASE_URL;
 const { Pool } = require('pg');
-const clientPool = new Pool({connectionString: connectionString});
+const pool = new Pool({connectionString: connectionString});
 
 const port = process.env.PORT || 8080;
 app.listen(port);
