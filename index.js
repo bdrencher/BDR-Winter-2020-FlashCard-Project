@@ -1,5 +1,4 @@
 require('dotenv').config();
-const controller = require("./controller/controller.js");
 
 const express = require('express');
 const app = express();
@@ -21,13 +20,22 @@ app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
 
 // --   Database queries   --
-app.post('/addQuestion', controller.addQuestion(Request, Response));
+app.post('/addQuestion', function (req, res)
+{
+    console.log("this is testing the POST request for add question");
+});
 
-// app.get('/getQuestion', getQuestion());
+app.get('/getQuestion', function (req, res) {
+    console.log("this is testing the GET request for get question");
+});
 
-// app.put('/updateQuestion', updateQuestion);
+app.put('/updateQuestion', function (req, res) {
+    console.log("teting the PUT request for update question");
+});
 
-// app.delete('/deleteQuestion', deleteQuestion);
+app.delete('/deleteQuestion', function (req, res) {
+    console.log("testing the DELETE request for delete question");
+});
 
 /**************************************************
  * TESTS
