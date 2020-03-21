@@ -1,3 +1,7 @@
+module.exports = {
+    addQuestionToDb: addQuestionToDb
+}
+
 function addQuestionToDb(parameters, callback)
 {
     console.log("adding question to DB")

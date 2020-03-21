@@ -1,3 +1,7 @@
+module.exports = {
+    getQuestionFromDb: getQuestionFromDb
+}
+
 function getQuestionFromDb(parameters, callback)
 {
     console.log("Retrieving question data with ID: ");
