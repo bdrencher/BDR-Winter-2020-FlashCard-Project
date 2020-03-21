@@ -26,5 +26,6 @@ function addAQuestion()
     }
 
     const data = {questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer};
-    
+
+    $.post("/addQuestion");
 }
