@@ -12,7 +12,7 @@ function addAQuestion()
     $('#secondAnswerInput').val('');
     $('#thirdAnswerInput').val('');
     $('#fourthAnswerInput').val('');
-    $('input[name=correctAnswer]:unchecked') 
+    $('input[name=correctAnswer]').prop('checked', false) 
 
     if (thirdAnswer == undefined)
     {
