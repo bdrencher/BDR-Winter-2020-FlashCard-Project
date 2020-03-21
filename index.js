@@ -20,21 +20,24 @@ app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
 
 // --   Database queries   --
-app.post('/addQuestion', function (req, res)
-{
+app.post('/addQuestion', function (req, res) {
     console.log("this is testing the POST request for add question");
+    res.send("successful POST");
 });
 
 app.get('/getQuestion', function (req, res) {
     console.log("this is testing the GET request for get question");
+    res.send("Successful GET");
 });
 
 app.put('/updateQuestion', function (req, res) {
     console.log("teting the PUT request for update question");
+    res.send("Successful PUT");
 });
 
 app.delete('/deleteQuestion', function (req, res) {
     console.log("testing the DELETE request for delete question");
+    res.send("successful DELETE");
 });
 
 /**************************************************
