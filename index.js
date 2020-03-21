@@ -1,5 +1,5 @@
 require('dotenv').config();
-require("./controller/addQuestion.js");
+const controller = require("./controller/controller.js");
 
 const express = require('express');
 const app = express();
@@ -21,7 +21,7 @@ app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
 
 // --   Database queries   --
-app.post('/addQuestion', addQuestion(request, response));
+app.post('/addQuestion', controller.addQuestion(Request, Response));
 
 // app.get('/getQuestion', getQuestion());
 
