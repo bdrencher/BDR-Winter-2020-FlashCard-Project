@@ -10,12 +10,13 @@ module.exports = {
 function addQuestion (request, response)
 {
     // get parameters
-    const questionText  = request.body.questionText;
-    const answerOne     = request.body.firstAnswer;
-    const answerTwo     = request.body.secondAnswer;
-    const answerThree   = request.body.thirdAnswer;
-    const answerFour    = request.body.fourthAnswer;
-    const correctAnswer = request.body.correctAnswer;
+    const data = JSON.parse(request.data);
+    const questionText  = data.data.questionText;
+    const answerOne     = data.data.firstAnswer;
+    const answerTwo     = data.data.secondAnswer;
+    const answerThree   = data.data.thirdAnswer;
+    const answerFour    = data.data.fourthAnswer;
+    const correctAnswer = data.data.correctAnswer;
 
     const parameters = [questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
     console.log(parameters);
