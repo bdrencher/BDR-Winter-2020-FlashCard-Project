@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // files needed
@@ -25,7 +26,7 @@ app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
 
 // --   Database queries   --
-// app.post('/addQuestion', addQuestion());
+app.post('/addQuestion', addQuestion());
 
 // app.get('/getQuestion', getQuestion());
 
