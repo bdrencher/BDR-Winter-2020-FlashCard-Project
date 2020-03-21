@@ -25,12 +25,18 @@ function addAQuestion()
 
 function deleteAQuestion()
 {
-    $.delete('/deleteQuestion');
+    $.ajax({
+        url: '/deleteQuestion',
+        type: 'DELETE'
+    });
 }
 
 function updateAQuestion()
 {
-    $.put('/updateQuestion');
+    $.ajax({
+        url: '/updateQuestion',
+        type: 'PUT'
+    });
 }
 
 function getAQuestion()
