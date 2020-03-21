@@ -5,7 +5,7 @@ function addAQuestion()
     const secondAnswer  = $('#secondAnswerInput').val();
     const thirdAnswer   = $('#thirdAnswerInput').val();
     const fourthAnswer  = $('#fourthAnswerInput').val();
-    const correctAnswer = $('input[name=correctAnswer]').val();
+    const correctAnswer = $('input[name=correctAnswer]:checked').val();
 
     if (thirdAnswer == undefined)
     {
