@@ -1,4 +1,5 @@
 require('dotenv').config();
+const controller = require('./controller/controller.js');
 
 const express = require('express');
 const app = express();
@@ -21,7 +22,9 @@ app.set('view engine', 'ejs');
 
 // --   Database queries   --
 app.post('/addQuestion', function (req, res) {
+    controller.addQuestion(req, res);
     console.log("this is testing the POST request for add question");
+    console.log(req.data);
     res.send("successful POST");
 });
 
