@@ -3,6 +3,13 @@ require('../model/deleteModel.js');
 require('../model/getModel.js');
 require('../model/updateModel');
 
+module.exports = {
+    addQuestion: addQuestion,
+    getQuestion: getQuestion,
+    updateQuestion: updateQuestion,
+    deleteQuestion: deleteQuestion
+}
+
 function addQuestion (request, response)
 {
     // get parameters
@@ -46,4 +53,14 @@ function getQuestion (request, response)
             response.status(200).json({success: true});
         }
     });
+}
+
+function updateQuestion(request, response)
+{
+    // do nothing for now
+}
+
+function deleteQuestion(request, response)
+{
+    // do nothing for now
 }
