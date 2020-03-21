@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="projectTwo.css">
-        <script src="../web/ajaxScripts.js"></script>
+        <script src="../views/addQuestionClient.js"></script>
+        <script src="../views/getQuestionClient.js"></script>
+        <script src="../views/updateQuestionClient.js"></script>
+        <script src="../views/deleteQuestionClient.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <title>CS Quiz - Ben Rencher</title>
     </head>
@@ -26,7 +29,7 @@
         </div>
         
         <h3>Add a question</h3>
-        
+
         <div>
             <label for="questionText">Enter the question text:</label>
             <input type="textarea" id="questionTextInput" name="questionText">
@@ -48,7 +51,7 @@
             <input type="radio" value="3" name="correctAnswer">
             <input type="radio" value="4" name="correctAnswer">
 
-            <button class="actionButton">Add question</button>
+            <button class="actionButton" onclick="addAQuestion()">Add question</button>
         </div>
 
         <select id="questionDropdown">
