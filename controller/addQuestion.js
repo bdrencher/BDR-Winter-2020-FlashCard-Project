@@ -1,14 +1,14 @@
 require('../model/addModel.js');
 
-function addQuestion (request, response)
+function addQuestion (data)
 {
     // get parameters
-    const questionText  = request.body.questionText;
-    const answerOne     = request.body.firstAnswer;
-    const answerTwo     = request.body.secondAnswer;
-    const answerThree   = request.body.thirdAnswer;
-    const answerFour    = request.body.fourthAnswer;
-    const correctAnswer = request.body.correctAnswer;
+    const questionText  = data.questionText;
+    const answerOne     = data.firstAnswer;
+    const answerTwo     = data.secondAnswer;
+    const answerThree   = data.thirdAnswer;
+    const answerFour    = data.fourthAnswer;
+    const correctAnswer = data.correctAnswer;
 
     const parameters = [questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
     console.log(parameters);

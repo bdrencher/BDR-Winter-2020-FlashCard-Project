@@ -25,9 +25,9 @@ app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
 
 // --   Database queries   --
-app.post('/addQuestion', addQuestion());
+// app.post('/addQuestion', addQuestion());
 
-app.get('/getQuestion', getQuestion());
+// app.get('/getQuestion', getQuestion());
 
 // app.put('/updateQuestion', updateQuestion);
 
