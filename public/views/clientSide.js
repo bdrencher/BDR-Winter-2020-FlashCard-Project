@@ -7,6 +7,13 @@ function addAQuestion()
     const fourthAnswer  = $('#fourthAnswerInput').val();
     const correctAnswer = $('input[name=correctAnswer]:checked').val();
 
+    $('#questionTextInput').val('');
+    $('#firstAnswerInput').val('');
+    $('#secondAnswerInput').val('');
+    $('#thirdAnswerInput').val('');
+    $('#fourthAnswerInput').val('');
+    $('input[name=correctAnswer]:unchecked') 
+
     if (thirdAnswer == undefined)
     {
         thirdAnswer = null;
