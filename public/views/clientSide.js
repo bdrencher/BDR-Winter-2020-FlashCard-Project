@@ -19,6 +19,8 @@ function addAQuestion()
 
     const data = {questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer};
     console.log(data);
+
+    $.post('/addQuestion');
 }
 
 function deleteAQuestion()
