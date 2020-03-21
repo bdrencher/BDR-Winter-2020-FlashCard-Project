@@ -20,3 +20,13 @@ function addAQuestion()
     const data = {questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer};
     console.log(data);
 }
+
+function deleteAQuestion()
+{
+    $.delete('/deleteQuestion');
+}
+
+function updateAQuestion()
+{
+    $.put('/updateQuestion');
+}
