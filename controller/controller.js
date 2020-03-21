@@ -1,7 +1,4 @@
-require('../model/addModel.js');
-require('../model/deleteModel.js');
-require('../model/getModel.js');
-require('../model/updateModel');
+const model = require('../model/model.js');
 
 module.exports = {
     addQuestion: addQuestion,
@@ -23,7 +20,7 @@ function addQuestion (request, response)
     const parameters = [questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
     console.log(parameters);
 
-    addQuestionToDb(parameters, function(error, result) {
+    model.addQuestionToDb(parameters, function(error, result) {
         if (error || result == null)
         {
             console.log("Error adding question to the database");
@@ -42,7 +39,7 @@ function getQuestion (request, response)
 
     const parameters = [questionId];
 
-    getQuestionFromDb(parameters, function (error, result) {
+    model.getQuestionFromDb(parameters, function (error, result) {
         if (error || result == null)
         {
             console.log("Error getting question from the database:");
