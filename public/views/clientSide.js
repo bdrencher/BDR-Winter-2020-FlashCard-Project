@@ -17,10 +17,14 @@ function addAQuestion()
         fourthAnswer = null;
     }
 
-    const data = {questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer};
-    console.log(data);
+    const data = JSON.stringify({questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer});
 
-    $.post('/addQuestion');
+    $.post('/addQuestion', { data: data });
+}
+
+function getAQuestion()
+{
+    $.get('/getQuestion');
 }
 
 function deleteAQuestion()
@@ -37,9 +41,4 @@ function updateAQuestion()
         url: '/updateQuestion',
         type: 'PUT'
     });
-}
-
-function getAQuestion()
-{
-    $.get('/getQuestion');
 }
