@@ -1,3 +1,8 @@
+function validateInput()
+{
+
+}
+
 function addAQuestion()
 {
     const questionText  = $('#questionTextInput').val();
