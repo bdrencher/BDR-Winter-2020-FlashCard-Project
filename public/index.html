@@ -53,14 +53,18 @@
         </div>
 
         <div>
-            <button class="actionButton" onclick="updateAQuestion()">Update Question</button>
+            <select id="deleteDropdown">
+                <option value=none>Please select a question to delete</option>
+            </select>
             <button class="actionButton" onclick="deleteAQuestion()">Delete Question</button>
         </div>
 
-        <select id="questionDropdown">
-        <option value=none>please select a question to edit or delete</option>
-
-
+        <div>
+            <select id="updateDropdown" >
+                <option value=none>Please select a question to edit</option>
+            </select>
+            <button class="actionButton" onclick="updateAQuestion()">Update Question</button>
+        </div>
 
     </body>
 

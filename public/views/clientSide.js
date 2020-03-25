@@ -45,8 +45,6 @@ function getListOfQuestions()
     $.get('/getQuestionList', function( data ) {
 
         questionList = data.data;
-        console.log("returned from DB to Client, data is:");
-        console.log(questionList);
     });
 }
 
