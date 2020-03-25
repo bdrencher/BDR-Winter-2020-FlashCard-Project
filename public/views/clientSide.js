@@ -58,8 +58,8 @@ function populateDropdowns(ids, names)
     for (let i = 0; i < ids.length; i++)
     {
         let newOption = document.createElement('option');
-        newOption.setAttribute('value') = ids[i];
-        newOption.setAttribute('innerText') = names[i];
+        newOption.setAttribute('value', ids[1]);
+        newOption.setAttribute('innerText', names[i]);
         $('#deleteDropdown').append(newOption);
         $('#updateDropdown').append(newOption);
     }
