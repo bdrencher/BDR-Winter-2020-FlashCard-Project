@@ -44,9 +44,7 @@ function getListOfQuestions()
     let questionList = [];
     $.get('/getQuestionList', function( data ) {
 
-        console.log(data);
-        console.log(typeof(data));
-        questionList = JSON.parse(data);
+        questionList = data.data;
         console.log("returned from DB to Client, data is:");
         console.log(questionList);
     });
