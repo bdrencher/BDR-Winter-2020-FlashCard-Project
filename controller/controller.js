@@ -67,6 +67,8 @@ function getQuestionList(request, response)
         }
         else
         {
+            console.log("result from controller level");
+            console.log(result);
             response.status(200).json({success: true, data: result});
         }
     });
