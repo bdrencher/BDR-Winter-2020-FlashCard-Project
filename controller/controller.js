@@ -3,6 +3,7 @@ const model = require('../model/model.js');
 module.exports = {
     addQuestion: addQuestion,
     getQuestion: getQuestion,
+    getQuestionList: getQuestionList,
     updateQuestion: updateQuestion,
     deleteQuestion: deleteQuestion
 }
@@ -49,6 +50,24 @@ function getQuestion (request, response)
         else
         {
             response.status(200).json({success: true});
+        }
+    });
+}
+
+function getQuestionList(request, response)
+{
+    // const userId = request.body.userId; - need this later
+    // const parameters = [userId]; - need this later
+
+    model.getQuestionListFromDb(function(error, result) { // later on need to pass userId in
+        if(error || result == null)
+        {
+            console.log("Error getting data from the database:");
+            response.status(500).json({success: false, data: error});
+        }
+        else
+        {
+            response.status(200).json({success: true, data: result});
         }
     });
 }

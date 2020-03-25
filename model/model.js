@@ -2,6 +2,7 @@ module.exports = {
     addQuestionToDb: addQuestionToDb,
     deleteQuestionFromDb: deleteQuestionFromDb,
     getQuestionFromDb: getQuestionFromDb,
+    getQuestionListFromDb: getQuestionListFromDb,
     updateQuestionInDb: updateQuestionInDb
 }
 
@@ -47,6 +48,47 @@ function getQuestionFromDb(parameters, callback)
         if (error)
         {
             console.log("an error has occured retrieving the question:");
+            console.log(error);
+            callback(error, null);
+        }
+        else
+        {
+            callback(null, result);
+        }
+    });
+}
+
+function getQuestionListFromDb(callback) // later on I'll need the userId to be passed in
+{
+    console.log("gettig list of questions");
+
+    const sql = "SELECT id FROM questions";
+    /**************************************
+     *  later on I'll want to extact question id's based on the user's id
+     * 
+     * const sql = "SELECT question_id FROM usrequestions WHERE user_id = $1";
+     * '$1' will be the user id passed into the function via the parameters variable
+     * 
+     * pool.query(sql, parameters, function(error, result)
+     * {
+     *     if (error)
+     *     {
+     *         console.log("An error has occured: ");
+     *         console.log(error);
+     *         callback(error, null);
+     *     }
+     *     else
+     *     {
+     *         callback(null, result);
+     *     }
+     * });
+     **************************************/
+
+    pool.query(sql, function (error, result)
+    {
+        if (error)
+        {
+            console.log("An error has occured: ");
             console.log(error);
             callback(error, null);
         }

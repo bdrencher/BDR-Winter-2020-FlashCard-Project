@@ -30,6 +30,12 @@ app.get('/getQuestion', function (req, res) {
     res.send("Successful GET");
 });
 
+app.get('/getQuestionList', function(req, res) {
+    console.log("This is a call to the getQuestionList function");
+    controller.getQuestionList(req, res);
+    res.send("Successfulr GET questionList");
+})
+
 app.put('/updateQuestion', function (req, res) {
     console.log("teting the PUT request for update question");
     res.send("Successful PUT");
