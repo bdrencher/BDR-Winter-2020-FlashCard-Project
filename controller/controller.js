@@ -77,7 +77,7 @@ function getQuestionList(request, response)
             }
             console.log(idList);
 
-            response.status(200).json({success: true, data: result});
+            response.status(200).json({success: true, data: idList});
         }
     });
 }

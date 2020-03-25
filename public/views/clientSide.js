@@ -42,21 +42,11 @@ function getAQuestion()
 function getListOfQuestions()
 {
     let questionList = [];
-    $.get('/getQuestionList', function( data )
-    {
-        console.log(data);
-        console.log(data.rows);
-        questionList = data.rows;
-        let idList = [];
-        for (let i = 0; i < questionList.length; i++)
-        {
-            idList[i] = questionList[i].id;
-        }
-        
-        console.log("returned from DB with questionList:");
+    $.get('/getQuestionList', function( data ) {
+
+        questionList = JSON.parse(data);
+        console.log("returned from DB to Client, data is:");
         console.log(questionList);
-        console.log("ids in list");
-        console.log(idList);
     });
 }
 
