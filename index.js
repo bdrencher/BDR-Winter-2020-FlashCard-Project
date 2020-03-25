@@ -4,6 +4,9 @@ const controller = require('./controller/controller.js');
 const express = require('express');
 const app = express();
 
+const favicon = require('serve-favicon');
+app.use(favicon(__dirname + '/public/favicon.ico'))
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
