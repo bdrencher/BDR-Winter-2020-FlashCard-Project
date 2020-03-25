@@ -44,6 +44,8 @@ function getListOfQuestions()
     let questionList = [];
     $.get('/getQuestionList', function( data )
     {
+        console.log(data);
+        console.log(data.rows);
         questionList = data.rows;
         let idList = [];
         for (let i = 0; i < questionList.length; i++)
