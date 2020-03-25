@@ -44,9 +44,11 @@ function getAQuestion()
 function getListOfQuestions()
 {
     let questionList = [];
+    let nameList = [];
     $.get('/getQuestionList', function( data ) {
 
-        questionList = data.data;
+        questionList = data.ids;
+        nameList     = data.names;
     });
 }
 

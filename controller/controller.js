@@ -70,15 +70,18 @@ function getQuestionList(request, response)
         {
             console.log("result from controller level");
             let rows = result.rows;
+            let nameList = [];
             let idList = [];
             
             for (let i = 0; i < rows.length; i++)
             {
                 idList.push(rows[i].id);
+                nameList.push(rows[i].questionname);
             }
             console.log(idList);
+            console.log(nameList);
 
-            response.status(200).json({success: true, data: idList});
+            response.status(200).json({success: true, ids: idList, names: nameList});
         }
     });
 }

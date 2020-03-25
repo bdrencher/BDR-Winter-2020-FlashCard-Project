@@ -62,7 +62,7 @@ function getQuestionListFromDb(callback) // later on I'll need the userId to be 
 {
     console.log("getting list of questions");
 
-    const sql = "SELECT id FROM questions";
+    const sql = "SELECT id, questionname FROM questions";
     /**************************************
      *  later on I'll want to extact question id's based on the user's id
      * 
