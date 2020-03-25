@@ -49,19 +49,18 @@ function getListOfQuestions()
 
         idList   = data.ids;
         nameList = data.names;
-        populateDropdowns(idList, nameList);
+        populateDropdown(idList, nameList);
     });
 }
 
-function populateDropdowns(ids, names)
+function populateDropdown(ids, names)
 {
     for (let i = 0; i < ids.length; i++)
     {
         let newOption = document.createElement('option');
         newOption.setAttribute('value', ids[1]);
         newOption.setAttribute('innerText', names[i]);
-        $('#deleteDropdown').append(newOption);
-        $('#updateDropdown').append(newOption);
+        $('#questionDropdown').append(newOption);
     }
 }
 
