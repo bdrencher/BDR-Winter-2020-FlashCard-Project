@@ -1,6 +1,3 @@
-// get list of questions on page load
-$( document ).ready(getListOfQuestions());
-
 function validateInput()
 {
 
@@ -54,6 +51,9 @@ function getListOfQuestions()
         console.log(questionList);
     });
 }
+
+// get list of questions on page load
+$( document ).ready(getListOfQuestions());
 
 function deleteAQuestion()
 {
