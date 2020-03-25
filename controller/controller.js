@@ -68,7 +68,15 @@ function getQuestionList(request, response)
         else
         {
             console.log("result from controller level");
-            console.log(result.rows);
+            let rows = result.rows;
+            let idList = [];
+            
+            for (let i = 0; i < rows.length; i++)
+            {
+                idList.push(rows[i].id);
+            }
+            console.log(idList);
+
             response.status(200).json({success: true, data: result});
         }
     });
