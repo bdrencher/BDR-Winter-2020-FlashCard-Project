@@ -16,7 +16,7 @@ function addQuestionToDb(parameters, callback)
 {
     console.log("adding question to DB")
 
-    const sql = "INSERT INTO questions (questionName, questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+    const sql = "INSERT INTO questions (questionName, questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, answer) VALUES ($1, $2, $3, $4, $5, $6, $7)";
 
     pool.query(sql, parameters, function(error, result) {
         if (error)
