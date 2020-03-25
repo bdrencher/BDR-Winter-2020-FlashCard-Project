@@ -47,9 +47,10 @@ function getListOfQuestions()
         questionList = data.rows;
         let idList = [];
         for (let i = 0; i < questionList.length; i++)
-        [
+        {
             idList[i] = questionList[i].id;
-        ]
+        }
+        
         console.log("returned from DB with questionList:");
         console.log(questionList);
         console.log("ids in list");
