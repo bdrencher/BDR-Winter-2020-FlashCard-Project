@@ -33,7 +33,7 @@ app.get('/getQuestion', function (req, res) {
 app.get('/getQuestionList', function(req, res) {
     console.log("This is a call to the getQuestionList function");
     controller.getQuestionList(req, res);
-    res.send("Successfulr GET questionList");
+    res.send(res.data);
 })
 
 app.put('/updateQuestion', function (req, res) {

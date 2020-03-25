@@ -1,3 +1,6 @@
+// get list of questions on page load
+$( document ).ready(getListOfQuestions());
+
 function validateInput()
 {
 
@@ -37,6 +40,19 @@ function addAQuestion()
 function getAQuestion()
 {
     $.get('/getQuestion');
+}
+
+function getListOfQuestions()
+{
+    const questionList = [];
+    $.get('/getQuestionList', function( data )
+    {
+        questionList = data;
+        console.log("returned from DB with data:");
+        console.log(data);
+        console.log("data in questionList");
+        console.log(questionList);
+    });
 }
 
 function deleteAQuestion()
