@@ -43,13 +43,26 @@ function getAQuestion()
 
 function getListOfQuestions()
 {
-    let questionList = [];
+    let idList = [];
     let nameList = [];
     $.get('/getQuestionList', function( data ) {
 
-        questionList = data.ids;
-        nameList     = data.names;
+        idList   = data.ids;
+        nameList = data.names;
+        populateDropdowns(idList, nameList);
     });
+}
+
+function populateDropdowns(ids, names)
+{
+    for (let i = 0; i < ids.length; i++)
+    {
+        let newOption = document.createElement('option');
+        newOption.setAttribute('value') = ids[i];
+        newOption.setAttribute('innerText') = names[i];
+        $('#deleteDropdown').append(newOption);
+        $('#updateDropdown').append(newOption);
+    }
 }
 
 // get list of questions on page load
