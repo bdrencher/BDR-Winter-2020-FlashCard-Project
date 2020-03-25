@@ -44,11 +44,16 @@ function getListOfQuestions()
     let questionList = [];
     $.get('/getQuestionList', function( data )
     {
-        questionList = data;
-        console.log("returned from DB with data:");
-        console.log(data);
-        console.log("data in questionList");
+        questionList = data.rows;
+        let idList = [];
+        for (let i = 0; i < questionList.length; i++)
+        [
+            idList[i] = questionList[i].id;
+        ]
+        console.log("returned from DB with questionList:");
         console.log(questionList);
+        console.log("ids in list");
+        console.log(idList);
     });
 }
 
