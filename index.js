@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 const favicon = require('serve-favicon');
-app.use(favicon(__dirname + '/public/favicon.ico'))
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -36,7 +36,7 @@ app.get('/getQuestion', function (req, res) {
 app.get('/getQuestionList', function(req, res) {
     console.log("This is a call to the getQuestionList function");
     controller.getQuestionList(req, res);
-    res.send(res.data);
+    // res.send(res.data);
 })
 
 app.put('/updateQuestion', function (req, res) {

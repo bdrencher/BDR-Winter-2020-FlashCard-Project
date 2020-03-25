@@ -60,7 +60,7 @@ function getQuestionFromDb(parameters, callback)
 
 function getQuestionListFromDb(callback) // later on I'll need the userId to be passed in
 {
-    console.log("gettig list of questions");
+    console.log("getting list of questions");
 
     const sql = "SELECT id FROM questions";
     /**************************************
