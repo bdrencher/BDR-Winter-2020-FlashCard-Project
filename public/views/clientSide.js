@@ -5,6 +5,7 @@ function validateInput()
 
 function addAQuestion()
 {
+    const questionName  = $('#questionName').val();
     const questionText  = $('#questionTextInput').val();
     const firstAnswer   = $('#firstAnswerInput').val();
     const secondAnswer  = $('#secondAnswerInput').val();
@@ -12,6 +13,7 @@ function addAQuestion()
     const fourthAnswer  = $('#fourthAnswerInput').val();
     const correctAnswer = $('input[name=correctAnswer]:checked').val();
 
+    $('#questionName').val('');
     $('#questionTextInput').val('');
     $('#firstAnswerInput').val('');
     $('#secondAnswerInput').val('');
@@ -29,7 +31,7 @@ function addAQuestion()
         fourthAnswer = null;
     }
 
-    const data = JSON.stringify({questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer});
+    const data = JSON.stringify({questionName, questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer});
 
     $.post('/addQuestion', { data: data });
 }

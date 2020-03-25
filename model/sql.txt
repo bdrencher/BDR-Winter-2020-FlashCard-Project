@@ -1,9 +1,9 @@
 TABLE CREATION
 	QUESTIONS
-	CREATE TABLE questions (id SERIAL PRIMARY KEY, questiontext varchar(5000) NOT NULL, answeronetext varchar(300) NOT NULL, answertwotext varchar(300) NOT NULL, answerthreetext varchar(300), answerfourtext varchar(300), answer int NOT NULL);
+	CREATE TABLE questions (id SERIAL PRIMARY KEY, questionname varchar(100) UNIQUE NOT NULL,  questiontext varchar(5000) NOT NULL, answeronetext varchar(300) NOT NULL, answertwotext varchar(300) NOT NULL, answerthreetext varchar(300), answerfourtext varchar(300), answer int NOT NULL);
 
 	USERS
 	CREATE TABLE users (id SERIAL PRIMARY KEY, username varchar(100) UNIQUE NOT NULL, passwordhash varchar(60) NOT NULL);
 
 	USERQUESTIONS
-	CREATE TABLE userquestions (question_id int REFERNCES questions(id), user_id int REFERENCES users(id));
+	CREATE TABLE userquestions (question_id int REFERENCES questions(id), user_id int REFERENCES users(id));

@@ -12,6 +12,7 @@ function addQuestion (request, response)
 {
     // get parameters
     const data = JSON.parse(request.body.data);
+    const questionName  = data.questionName;
     const questionText  = data.questionText;
     const answerOne     = data.firstAnswer;
     const answerTwo     = data.secondAnswer;
@@ -19,7 +20,7 @@ function addQuestion (request, response)
     const answerFour    = data.fourthAnswer;
     const correctAnswer = data.correctAnswer;
 
-    const parameters = [questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
+    const parameters = [questionName, questionText, answerOne, answerTwo, answerThree, answerFour, correctAnswer];
     console.log(parameters);
 
     model.addQuestionToDb(parameters, function(error, result) {
