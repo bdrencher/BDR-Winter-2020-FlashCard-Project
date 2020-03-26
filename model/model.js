@@ -42,7 +42,7 @@ function getQuestionFromDb(parameters, callback)
     console.log("Retrieving question data with ID: ");
     console.log(parameters);
     
-    const sql = "SELECT * FROM questions WHERE id = $1";
+    const sql = "SELECT questionname, questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, answer FROM questions WHERE id = $1";
 
     pool.query(sql, parameters, function (error, result) {
         if (error)
