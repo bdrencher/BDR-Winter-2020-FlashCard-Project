@@ -41,7 +41,7 @@ function deleteQuestionFromDb(parameters, callback)
         if (error)
         {
             console.log("An error occured while deleting a question");
-            console.log(error):
+            console.log(error);
             callback(error, null);
         }
         else
