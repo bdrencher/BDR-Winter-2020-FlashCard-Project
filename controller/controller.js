@@ -50,7 +50,7 @@ function getQuestion (request, response)
         }
         else
         {
-            response.status(200).json({success: true});
+            response.status(200).json({success: true, question: result});
         }
     });
 }
