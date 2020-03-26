@@ -36,37 +36,14 @@ app.get('/getQuestion', function (req, res) {
 app.get('/getQuestionList', function(req, res) {
     console.log("This is a call to the getQuestionList function");
     controller.getQuestionList(req, res);
-    // res.send(res.data);
 });
 
 app.put('/updateQuestion', function (req, res) {
     console.log("teting the PUT request for update question");
-    res.send("Successful PUT");
+    controller.updateQuestion(req, res);
 });
 
 app.delete('/deleteQuestion', function (req, res) {
     console.log("testing the DELETE request for delete question");
     res.send("successful DELETE");
 });
-
-/**************************************************
- * TESTS
- * What user information I need for making queries
- * - user id
-***************************************************/
-// const addTestParameters = ["text for another test question", "one", "two", "three", "four", 3];
-// const addQuery = "INSERT INTO questions (questiontext, answeronetext, answertwotext, answerthreetext, answerfourtext, correctanswer) VALUES ($1, $2, $3, $4, $5, $6)";
-// clientPool.query(addQuery, addTestParameters, function (error, response){
-//     if (error){
-//         console.log(error);
-//     }
-//     else {
-//         console.log(response);
-//     }
-// });
-
-// const retrieveQuery = "SELECT * FROM questions WHERE id = $1";
-
-// const updateQuery = "UPDATE question SET questionText = $1, answerOneText = $2, answerTwoText = $3, answerThreeText = $4, answerFourText = $5, correctAnswer = $6 WHERE id = $7";
- 
-// const deleteQuery = "DELETE FROM userQuestions WHERE user_id = $1 AND question_id = $2";

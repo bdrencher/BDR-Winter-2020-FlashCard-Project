@@ -32,9 +32,23 @@ function addQuestionToDb(parameters, callback)
     });
 }
 
-function deleteQuestionFromDb()
+function deleteQuestionFromDb(parameters, callback)
 {
-    // do nothing right now
+    console.log("Entering delete question from DB");
+    const sql = "DELETE FROM questions WHERE id = $1";
+
+    pool.query(sql, parameters, function (error, result) {
+        if (error)
+        {
+            console.log("An error occured while deleting a question");
+            console.log(error):
+            callback(error, null);
+        }
+        else
+        {
+            callback(null, result);
+        }
+    })
 }
 
 function getQuestionFromDb(parameters, callback)
@@ -99,7 +113,21 @@ function getQuestionListFromDb(callback) // later on I'll need the userId to be 
     });
 }
 
-function updateQuestionInDb()
+function updateQuestionInDb(parameters, callback)
 {
-    // do nothing for now
+    console.log("entering update Question in DB");
+    const sql = "UPDATE question SET questionname = $1, questionText = $2, answerOneText = $3, answerTwoText = $4, answerThreeText = $5, answerFourText = $6, answer = $7 WHERE id = $8"
+
+    pool.query(sql, parameters, function(error, result){
+        if (error)
+        {
+            console.log("An error occured while attempting to update a question");
+            console.log(error);
+            callback(error, null);
+        }
+        else
+        {
+            callback(null, result);
+        }
+    });
 }
