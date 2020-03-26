@@ -91,6 +91,8 @@ function getQuestionList(request, response)
 
 function updateQuestion(request, response)
 {
+    console.log(request);
+    console.log(request.body);
     const questionData = request.body.data;
     console.log(questionData);
 
