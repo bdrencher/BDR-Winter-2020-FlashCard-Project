@@ -37,7 +37,7 @@ function addAQuestion()
     getListOfQuestions();
 }
 
-function getAQuestion()
+function populateUpdateFields()
 {
     const id = $("#questionDropdown").val();
     $.get('/getQuestion', {id: id})
@@ -48,6 +48,19 @@ function getAQuestion()
             $('#updateAnswerTwo').val(data.question.answertwotext);
             $('#updateAnswerThree').val(data.question.answerthreetext);
             $('#updateAnswerFour').val(data.question.answerfourtext);
+        });
+}
+
+function getNextQuestion()
+{
+    const id = 0; // need to have a session variable to point to next question
+    $.get('/getQuestion', {id: id})
+        .done(function (data) {
+            $('#questionBoxText').prop('innerText', data.question.questiontext);
+            $('#answerOneText').prop('innerText', data.question.answeronetext);
+            $('#answerTwoText').prop('innerText', data.question.answertwotext);
+            $('#answerThreeText').prop('innerText', data.question.answerthreetext);
+            $('#answerFourText').prop('innerText', data.question.answerfourtext);
         });
 }
 
