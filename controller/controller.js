@@ -38,9 +38,11 @@ function addQuestion (request, response)
 
 function getQuestion (request, response)
 {
+    console.log("inside controller getQuestion");
     const questionId = request.body.id;
-
+    console.log("question id is:", questionId);
     const parameters = [questionId];
+    console.log("parameters are:", parameters)
 
     model.getQuestionFromDb(parameters, function (error, result) {
         if (error || result == null)
