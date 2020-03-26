@@ -116,7 +116,7 @@ function getQuestionListFromDb(callback) // later on I'll need the userId to be 
 function updateQuestionInDb(parameters, callback)
 {
     console.log("entering update Question in DB");
-    const sql = "UPDATE questions SET questionname = $1, questionText = $2, answerOneText = $3, answerTwoText = $4, answerThreeText = $5, answerFourText = $6, answer = $7 WHERE id = $8"
+    const sql = "UPDATE questions SET questionname = $1, questiontext = $2, answeronetext = $3, answertwotext = $4, answerthreetext = $5, answerfourtext = $6, answer = $7 WHERE id = $8"
 
     pool.query(sql, parameters, function(error, result){
         if (error)
