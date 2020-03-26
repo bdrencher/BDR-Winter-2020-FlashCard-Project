@@ -30,7 +30,7 @@ app.post('/addQuestion', function (req, res) {
 
 app.get('/getQuestion', function (req, res) {
     console.log("this is testing the GET request for get question");
-    res.send("Successful GET");
+    controller.getQuestion(req, res);
 });
 
 app.get('/getQuestionList', function(req, res) {
