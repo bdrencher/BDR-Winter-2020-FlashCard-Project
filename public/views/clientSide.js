@@ -41,18 +41,13 @@ function getAQuestion()
 {
     const id = $("#questionDropdown").val();
     $.get('/getQuestion', function( data ) {
-        populateUpdate(data)}, 
+        $('#updateQuestionName').val(data.questionname);
+        $('#updateQuestionText').val(data.questiontext);
+        $('#updateAnswerOne').val(data.answeronetext);
+        $('#updateAnswerTwo').val(data.answertwotext);
+        $('#updateAnswerThree').val(data.answerthreetext);
+        $('#updateAnswerFour').val(data.answerfourtext);}, 
         {id: id});
-}
-
-function populateUpdate(question)
-{
-    $('#updateQuestionName').val(question.questionname);
-    $('#updateQuestionText').val(question.questiontext);
-    $('#updateAnswerOne').val(question.answeronetext);
-    $('#updateAnswerTwo').val(question.answertwotext);
-    $('#updateAnswerThree').val(question.answerthreetext);
-    $('#updateAnswerFour').val(question.answerfourtext);
 }
 
 function getListOfQuestions()
