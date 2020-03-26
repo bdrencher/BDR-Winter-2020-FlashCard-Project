@@ -93,7 +93,7 @@ function updateQuestion(request, response)
 {
     const questionData = request.body;
 
-    const parameters = [questionData.id, questionData.name, questionData.text, questionData.answerOne, questionData.answerTwo, questionData.answerThree, questionData.answerFour, questionData.correct];
+    const parameters = [questionData.name, questionData.text, questionData.answerOne, questionData.answerTwo, questionData.answerThree, questionData.answerFour, questionData.correct, questionData.id];
 
     model.updateQuestionInDb(parameters, function(error, result)
     {
