@@ -89,16 +89,28 @@ $( document ).ready(getListOfQuestions());
 
 function deleteAQuestion()
 {
+    const id = $('#questionDropdown').val();
     $.ajax({
         url: '/deleteQuestion',
-        type: 'DELETE'
+        type: 'DELETE',
+        data: {id: id}
     });
 }
 
 function updateAQuestion()
 {
+    const id          = $('#questionDropdown').val();
+    const qName       = $('#updateQuestionName').val();
+    const qText       = $('#updateQuestionText').val();
+    const answerOne   = $('#updateAnswerOne').val();
+    const answerTwo   = $('#updateAnswerTwo').val();
+    const answerThree = $('#updateAnswerThree').val();
+    const answerFour  = $('#updateAnswerFour').val();
+    const correct     = $('#updateCorrectAnswer').val();
+    
     $.ajax({
         url: '/updateQuestion',
-        type: 'PUT'
+        type: 'PUT',
+        data: {id: id, name: qName, text: qText, one: answerOne, two: answerTwo, three: answerThree, four: answerFour, correct: correct}
     });
 }
