@@ -40,14 +40,15 @@ function addAQuestion()
 function getAQuestion()
 {
     const id = $("#questionDropdown").val();
-    $.get('/getQuestion', function( data ) {
-        $('#updateQuestionName').val(data.questionname);
-        $('#updateQuestionText').val(data.questiontext);
-        $('#updateAnswerOne').val(data.answeronetext);
-        $('#updateAnswerTwo').val(data.answertwotext);
-        $('#updateAnswerThree').val(data.answerthreetext);
-        $('#updateAnswerFour').val(data.answerfourtext);}, 
-        {id: id});
+    $.get('/getQuestion', {id: id})
+        .done(function (data) {
+            $('#updateQuestionName').val(data.questionname);
+            $('#updateQuestionText').val(data.questiontext);
+            $('#updateAnswerOne').val(data.answeronetext);
+            $('#updateAnswerTwo').val(data.answertwotext);
+            $('#updateAnswerThree').val(data.answerthreetext);
+            $('#updateAnswerFour').val(data.answerfourtext);
+        });
 }
 
 function getListOfQuestions()
