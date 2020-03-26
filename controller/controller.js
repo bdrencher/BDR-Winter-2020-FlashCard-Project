@@ -106,7 +106,7 @@ function updateQuestion(request, response)
         else
         {
             console.log("The data was successfully updated")
-            response.status(200);
+            response.status(200).json({success: true});
         }
     });
 }
@@ -125,7 +125,7 @@ function deleteQuestion(request, response)
         else
         {
             console.log("The question was successfully deleted");
-            response.status(500);
+            response.status(200).json({success: true});
         }
     });
 }
