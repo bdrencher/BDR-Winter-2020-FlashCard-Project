@@ -91,10 +91,7 @@ function getQuestionList(request, response)
 
 function updateQuestion(request, response)
 {
-    console.log(request);
-    console.log(request.body);
-    const questionData = request.body.data;
-    console.log(questionData);
+    const questionData = request.body;
 
     const parameters = [questionData.id, questionData.name, questionData.text, questionData.answerOne, questionData.answerTwo, questionData.answerThree, quesitonData.answerFour, questionData.correct];
 
