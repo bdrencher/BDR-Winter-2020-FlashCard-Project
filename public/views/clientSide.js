@@ -34,6 +34,7 @@ function addAQuestion()
     const data = JSON.stringify({questionName, questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer});
 
     $.post('/addQuestion', { data: data });
+    getListOfQuestions();
 }
 
 function getAQuestion()
