@@ -42,13 +42,12 @@ function getAQuestion()
     const id = $("#questionDropdown").val();
     $.get('/getQuestion', {id: id})
         .done(function (data) {
-            console.log(data);
-            $('#updateQuestionName').val(data.questionname);
-            $('#updateQuestionText').val(data.questiontext);
-            $('#updateAnswerOne').val(data.answeronetext);
-            $('#updateAnswerTwo').val(data.answertwotext);
-            $('#updateAnswerThree').val(data.answerthreetext);
-            $('#updateAnswerFour').val(data.answerfourtext);
+            $('#updateQuestionName').val(data.question.questionname);
+            $('#updateQuestionText').val(data.question.questiontext);
+            $('#updateAnswerOne').val(data.question.answeronetext);
+            $('#updateAnswerTwo').val(data.question.answertwotext);
+            $('#updateAnswerThree').val(data.question.answerthreetext);
+            $('#updateAnswerFour').val(data.question.answerfourtext);
         });
 }
 
