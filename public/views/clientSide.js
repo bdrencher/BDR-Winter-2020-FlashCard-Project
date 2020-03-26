@@ -57,10 +57,7 @@ function populateDropdown(ids, names)
 {
     for (let i = 0; i < ids.length; i++)
     {
-        let newOption = document.createElement('option');
-        newOption.setAttribute('value', ids[1]);
-        newOption.setAttribute('innerText', names[i]);
-        $('#questionDropdown').append(newOption);
+        $('#questionDropdown').append(new Option(names[i], ids[i]));
     }
 }
 
