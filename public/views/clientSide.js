@@ -53,7 +53,7 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {
-    const id = 0; // need to have a session variable to point to next question
+    const id = 1; // need to have a session variable to point to next question
     $.get('/getQuestion', {id: id})
         .done(function (data) {
             $('#questionBoxText').prop('innerText', data.question.questiontext);
