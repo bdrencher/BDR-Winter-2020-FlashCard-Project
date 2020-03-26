@@ -106,7 +106,7 @@ function updateAQuestion()
     const answerTwo   = $('#updateAnswerTwo').val();
     const answerThree = $('#updateAnswerThree').val();
     const answerFour  = $('#updateAnswerFour').val();
-    const correct     = $('#updateCorrectAnswer').val();
+    const correct     = $('input[name=updateCorrectAnswer]:checked').val();
     
     $.ajax({
         url: '/updateQuestion',
