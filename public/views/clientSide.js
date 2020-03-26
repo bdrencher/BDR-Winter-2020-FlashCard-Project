@@ -42,6 +42,7 @@ function getAQuestion()
     const id = $("#questionDropdown").val();
     $.get('/getQuestion', {id: id})
         .done(function (data) {
+            console.log(data);
             $('#updateQuestionName').val(data.questionname);
             $('#updateQuestionText').val(data.questiontext);
             $('#updateAnswerOne').val(data.answeronetext);
