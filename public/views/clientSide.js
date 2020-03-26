@@ -40,7 +40,7 @@ function addAQuestion()
 function getAQuestion()
 {
     const id = $("#questionDropdown").val();
-    $.get('/getQuestion', id);
+    $.get('/getQuestion', {id: id});
 }
 
 function getListOfQuestions()
