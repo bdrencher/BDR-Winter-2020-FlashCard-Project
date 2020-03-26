@@ -52,7 +52,8 @@ function getQuestion (request, response)
         }
         else
         {
-            response.status(200).json({success: true, question: result});
+            let question = result.rows[0];
+            response.status(200).json({success: true, question: question});
         }
     });
 }

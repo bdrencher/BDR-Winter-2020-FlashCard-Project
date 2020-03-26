@@ -40,7 +40,17 @@ function addAQuestion()
 function getAQuestion()
 {
     const id = $("#questionDropdown").val();
-    $.get('/getQuestion', {id: id});
+    $.get('/getQuestion', populateUpdate(data), {id: id});
+}
+
+function populateUpdate(question)
+{
+    $('#updateQuestionName').val(question.questionname);
+    $('#updateQuestionText').val(question.questiontext);
+    $('#updateAnswerOne').val(question.answeronetext);
+    $('#updateAnswerTwo').val(question.answertwotext);
+    $('#updateAnswerThree').val(question.answerthreetext);
+    $('#updateAnswerFour').val(question.answerfourtext);
 }
 
 function getListOfQuestions()
