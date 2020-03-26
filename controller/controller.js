@@ -91,10 +91,42 @@ function getQuestionList(request, response)
 
 function updateQuestion(request, response)
 {
-    // do nothing for now
+    const questionData = request.body.data;
+    console.log(questionData);
+
+    const parameters = [questionData.id, questionData.name, questionData.text, questionData.answerOne, questionData.answerTwo, questionData.answerThree, quesitonData.answerFour, questionData.correct];
+
+    model.updateQuestionInDb(parameters, function(error, result)
+    {
+        if(error || result == null)
+        {
+            console.log("The update question DB return resulted in an error.")
+            console.log(error);
+            response.status(500).json({success: false, data: error});
+        }
+        else
+        {
+            console.log("The data was successfully updated")
+            response.status(200);
+        }
+    });
 }
 
 function deleteQuestion(request, response)
 {
-    // do nothing for now
+    const id = [request.body.id];
+    console.log("id requested for deletion", id);
+
+    model.deleteQuestionFromDb(id, function(error, result) {
+        if (error || result == null)
+        {
+            console.log("An error occured while getting the response back from DB");
+            response.status(500).json({success: false, data: error});
+        }
+        else
+        {
+            console.log("The question was successfully deleted");
+            response.status(500);
+        }
+    });
 }
