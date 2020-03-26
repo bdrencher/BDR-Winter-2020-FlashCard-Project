@@ -45,5 +45,5 @@ app.put('/updateQuestion', function (req, res) {
 
 app.delete('/deleteQuestion', function (req, res) {
     console.log("testing the DELETE request for delete question");
-    res.send("successful DELETE");
+    controller.deleteQuestion(req, res);
 });
