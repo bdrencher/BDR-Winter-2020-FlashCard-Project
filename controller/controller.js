@@ -39,7 +39,7 @@ function addQuestion (request, response)
 function getQuestion (request, response)
 {
     console.log("inside controller getQuestion");
-    const questionId = request.body.id;
+    const questionId = request.query.id;
     console.log("question id is:", questionId);
     const parameters = [questionId];
     console.log("parameters are:", parameters)
