@@ -54,9 +54,14 @@ function populateUpdateFields()
 }
 
 function getNextQuestion()
-{
-    const id = 1; // need to have a session variable to point to next question
-    $.get('/getQuestion', {id: id})
+{   
+    const id = null;
+    $.get('/getQuestionList', function( data ) {
+        const idList = data.ids;
+        const index = Math.ceil(((idList.length - 1) * Math.random()));
+        id = idList[index];
+    }).done(function() {
+        $.get('/getQuestion', {id: id})
         .done(function (data) {
             $('#questionBoxText').prop('innerText', data.question.questiontext);
             $('#answerOneText').prop('innerText', data.question.answeronetext);
@@ -64,6 +69,7 @@ function getNextQuestion()
             $('#answerThreeText').prop('innerText', data.question.answerthreetext);
             $('#answerFourText').prop('innerText', data.question.answerfourtext);
         });
+    });
 }
 
 function getListOfQuestions()
