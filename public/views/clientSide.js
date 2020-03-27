@@ -63,6 +63,7 @@ function getNextQuestion()
     }).done(function() {
         $.get('/getQuestion', {id: id})
         .done(function (data) {
+            console.log(data);
             $('#questionBoxText').prop('innerText', data.question.questiontext);
             $('#answerOneText').prop('innerText', data.question.answeronetext);
             $('#answerTwoText').prop('innerText', data.question.answertwotext);
