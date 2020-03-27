@@ -63,6 +63,7 @@ function getNextQuestion()
     }).done(function() {
         $.get('/getQuestion', {id: id})
         .done(function (data) {
+            $('#questionBoxName').prop('innerText', data.question.questionname);
             $('#questionBoxText').prop('innerText', data.question.questiontext);
             $('#answerOneText').prop('innerText', data.question.answeronetext);
             $('#answerTwoText').prop('innerText', data.question.answertwotext);
@@ -70,6 +71,11 @@ function getNextQuestion()
             $('#answerFourText').prop('innerText', data.question.answerfourtext);
         });
     });
+}
+
+function submitAnswer()
+{
+
 }
 
 function getListOfQuestions()
