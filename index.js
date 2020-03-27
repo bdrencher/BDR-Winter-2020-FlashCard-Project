@@ -20,6 +20,14 @@ app.listen(port);
 
 app.use(express.static(__dirname + '/public'));
 
+// middleware applied to every routing request to prevent caching
+app.use(function (req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
+    next();
+});
+
 app.set('views', __dirname + '/views'); // set up ejs for rendering html pages
 app.set('view engine', 'ejs');
 
