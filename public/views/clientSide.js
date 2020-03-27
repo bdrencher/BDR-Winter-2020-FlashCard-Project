@@ -78,6 +78,11 @@ function getListOfQuestions()
 
 function populateDropdown(ids, names)
 {
+    // first, remove any options currently present
+    $('#questionDropdown').find('option').remove();
+
+    // replace default and add new options
+    $('#questionDropdown').append(new Option("Please select a question to delete or edit", null));
     for (let i = 0; i < ids.length; i++)
     {
         $('#questionDropdown').append(new Option(names[i], ids[i]));
@@ -94,7 +99,10 @@ function deleteAQuestion()
         url: '/deleteQuestion',
         type: 'DELETE',
         data: {id: id}
-    }).done(clearUpdateFields());
+    }).done(function() {
+        clearUpdateFields();
+        getListOfQuestions();
+    });
 }
 
 function updateAQuestion()
@@ -112,7 +120,10 @@ function updateAQuestion()
         url: '/updateQuestion',
         type: 'PUT',
         data: {id: id, name: qName, text: qText, one: answerOne, two: answerTwo, three: answerThree, four: answerFour, correct: correct}
-    }).done(clearUpdateFields());
+    }).done(function (){
+        clearUpdateFields();
+        getListOfQuestions();
+    });
 
 }
 
