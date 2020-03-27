@@ -94,7 +94,7 @@ function deleteAQuestion()
         url: '/deleteQuestion',
         type: 'DELETE',
         data: {id: id}
-    });
+    }).done(clearUpdateFields());
 }
 
 function updateAQuestion()
@@ -112,5 +112,17 @@ function updateAQuestion()
         url: '/updateQuestion',
         type: 'PUT',
         data: {id: id, name: qName, text: qText, one: answerOne, two: answerTwo, three: answerThree, four: answerFour, correct: correct}
-    });
+    }).done(clearUpdateFields());
+
+}
+
+function clearUpdateFields()
+{
+    $('#updateQuestionName').val('');
+    $('#updateQuestionText').val('');
+    $('#updateAnswerOne').val('');
+    $('#updateAnswerTwo').val('');
+    $('#updateAnswerThree').val('');
+    $('#updateAnswerFour').val('');
+    $('input[name=updateCorrectAnswer]').prop('checked', false);
 }
