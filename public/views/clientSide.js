@@ -55,7 +55,7 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {   
-    const id = null;
+    let id = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
         const index = Math.ceil(((idList.length - 1) * Math.random()));
@@ -63,7 +63,6 @@ function getNextQuestion()
     }).done(function() {
         $.get('/getQuestion', {id: id})
         .done(function (data) {
-            console.log(data);
             $('#questionBoxText').prop('innerText', data.question.questiontext);
             $('#answerOneText').prop('innerText', data.question.answeronetext);
             $('#answerTwoText').prop('innerText', data.question.answertwotext);
