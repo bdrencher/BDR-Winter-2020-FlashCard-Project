@@ -33,8 +33,10 @@ function addAQuestion()
 
     const data = JSON.stringify({questionName, questionText, firstAnswer, secondAnswer, thirdAnswer, fourthAnswer, correctAnswer});
 
-    $.post('/addQuestion', { data: data });
-    getListOfQuestions();
+    $.post('/addQuestion', { data: data })
+        .done(function () {
+            getListOfQuestions();
+        });
 }
 
 function populateUpdateFields()
