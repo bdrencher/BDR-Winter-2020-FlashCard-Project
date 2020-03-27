@@ -58,7 +58,7 @@ function getNextQuestion()
     let id = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
-        const index = Math.ceil(((idList.length - 1) * Math.random()));
+        const index = Math.ceil(((idList.length) * Math.random())) - 1;
         id = idList[index];
     }).done(function() {
         $.get('/getQuestion', {id: id})
