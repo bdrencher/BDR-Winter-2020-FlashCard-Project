@@ -1,7 +1,8 @@
 localStorage.setItem('idIndex', JSON.stringify(0));
 localStorage.setItem('incorrect', JSON.stringify(0));
 localStorage.setItem('correct', JSON.stringify(0));
-localStorage.setItem('answer', JSON.stringify(5));
+localStorage.setItem('answer', JSON.stringify(0));
+localStorage.setItem('isAnswered', JSON.stringify(false));
 
 function validateInput()
 {
@@ -60,6 +61,7 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {   
+    localStorage.setItem('isAnswered', JSON.stringify(false));
     let id = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
@@ -99,6 +101,10 @@ function submitAnswer()
         correct += 1;
         $('#correct').prop('innerText', 'Correct: ' + correct);
         localStorage.setItem('correct', JSON.stringify(correct));
+    }
+    else if (JSON.parse(localStorage.getItem('isAnswered')))
+    {
+        alert("This question has already been answered");
     }
     else
     {
