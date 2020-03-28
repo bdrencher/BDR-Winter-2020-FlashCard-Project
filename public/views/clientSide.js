@@ -1,7 +1,7 @@
 localStorage.setItem('idIndex', JSON.stringify(0));
 localStorage.setItem('incorrect', JSON.stringify(0));
 localStorage.setItem('correct', JSON.stringify(0));
-localStorage.setItem('answer', JSON.stringify(0));
+localStorage.setItem('answer', JSON.stringify(5));
 
 function validateInput()
 {
@@ -60,6 +60,13 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {   
+    // don't do anything if the question has already been answered
+    if(JSON.parse(localStorage.getItem('answer') == 0))
+    {
+        alert("This question has already been answered");
+        return;
+    }
+
     let id = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
@@ -108,6 +115,14 @@ function submitAnswer()
     }
 
     localStorage.setItem('answer', JSON.stringify(0));
+}
+
+function resetScores()
+{
+    $('#correct').prop('innerText', 'Correct: 0');
+    $('#incorrect').prop('innerText', 'Incorrect: 0');
+    localStorage.setItem('correct', JSON.stringify(0));
+    localStorage.setItem('incorrect', JSON.stringify(0));
 }
 
 function getListOfQuestions()
