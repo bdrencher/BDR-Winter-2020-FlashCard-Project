@@ -114,6 +114,7 @@ function submitAnswer()
     }
 
     localStorage.setItem('answer', JSON.stringify(0));
+    localStorage.setItem('isAnswered', JSON.stringify(true));
 }
 
 function resetScores()
