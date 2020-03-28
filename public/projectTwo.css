@@ -20,6 +20,10 @@
     grid-column: 2;
 }
 
+.inline {
+    display: inline;
+}
+
 #contentButtons {
     margin-left: 60%;
 }
