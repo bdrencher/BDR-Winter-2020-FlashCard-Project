@@ -60,13 +60,6 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {   
-    // don't do anything if the question has already been answered
-    if(JSON.parse(localStorage.getItem('answer') == 0))
-    {
-        alert("This question has already been answered");
-        return;
-    }
-
     let id = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
