@@ -57,12 +57,12 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {   
-    let id = null;
+    let nextId = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
 
         // retrieve the next question in the list or else start over
-        let nextId = JSON.parse(localStorage.getItem('idIndex')) + 1;
+        nextId = JSON.parse(localStorage.getItem('idIndex')) + 1;
         if (nextId == idList.length)
         {
             nextId = 0;
