@@ -98,11 +98,13 @@ function submitAnswer()
     {
         correct += 1;
         $('#correct').prop('innerText', 'Correct: ' + correct);
+        localStorage.setItem('correct', JSON.stringify(correct));
     }
     else
     {
         incorrect += 1;
         $('#incorrect').prop('innerText', 'Incorrect: ' + incorrect);
+        localStorage.setItem('incorrect', JSON.stringify(incorrect));
     }
 
     localStorage.setItem('answer', JSON.stringify(0));
