@@ -67,7 +67,7 @@ function getNextQuestion()
         {
             nextIndex = 0;
         }
-        localStorage.setItem('idIndex', JSON.stringify(nextId));
+        localStorage.setItem('idIndex', JSON.stringify(nextIndex));
         id = idList[nextIndex];
 
     }).done(function() {
