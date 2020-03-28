@@ -1,3 +1,5 @@
+localStorage.setItem('idIndex', JSON.stringify(0));
+
 function validateInput()
 {
 
@@ -58,10 +60,17 @@ function getNextQuestion()
     let id = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
-        const index = Math.ceil(((idList.length) * Math.random())) - 1;
-        id = idList[index];
+
+        // retrieve the next question in the list or else start over
+        let nextId = JSON.parse(localStorage.getItem('idIndex')) + 1;
+        if (nextId == idList.length)
+        {
+            nextId = 0;
+        }
+        localStorage.setItem('idIndex', JSON.stringify(nextId));
+
     }).done(function() {
-        $.get('/getQuestion', {id: id})
+        $.get('/getQuestion', {id: nextId})
         .done(function (data) {
             $('#questionBoxName').prop('innerText', data.question.questionname);
             $('#questionBoxText').prop('innerText', data.question.questiontext);
@@ -83,7 +92,6 @@ function getListOfQuestions()
     let idList = [];
     let nameList = [];
     $.get('/getQuestionList', function( data ) {
-
         idList   = data.ids;
         nameList = data.names;
         populateDropdown(idList, nameList);
