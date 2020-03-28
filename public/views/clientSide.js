@@ -57,20 +57,21 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {   
-    let nextId = null;
+    let id = null;
     $.get('/getQuestionList', function( data ) {
         const idList = data.ids;
 
         // retrieve the next question in the list or else start over
-        nextId = JSON.parse(localStorage.getItem('idIndex')) + 1;
-        if (nextId == idList.length)
+        let nextIndex = JSON.parse(localStorage.getItem('idIndex')) + 1;
+        if (nextIndex >= idList.length)
         {
-            nextId = 0;
+            nextIndex = 0;
         }
         localStorage.setItem('idIndex', JSON.stringify(nextId));
+        id = idList[nextIndex];
 
     }).done(function() {
-        $.get('/getQuestion', {id: nextId})
+        $.get('/getQuestion', {id: id})
         .done(function (data) {
             $('#questionBoxName').prop('innerText', data.question.questionname);
             $('#questionBoxText').prop('innerText', data.question.questiontext);
