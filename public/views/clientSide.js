@@ -1,4 +1,7 @@
 localStorage.setItem('idIndex', JSON.stringify(0));
+localStorage.setItem('incorrect', JSON.stringify(0));
+localStorage.setItem('correct', JSON.stringify(0));
+localStorage.setItem('answer', JSON.stringify(0));
 
 function validateInput()
 {
@@ -79,13 +82,30 @@ function getNextQuestion()
             $('#answerTwoText').prop('innerText', data.question.answertwotext);
             $('#answerThreeText').prop('innerText', data.question.answerthreetext);
             $('#answerFourText').prop('innerText', data.question.answerfourtext);
+            localStorage.setItem('answer', JSON.stringify(data.question.answer));
         });
     });
 }
 
 function submitAnswer()
 {
+    let correct = JSON.parse(localStorage.getItem('correct'));
+    let incorrect = JSON.parse(localStorage.getItem('incorrect'));
+    const correctAnswer = localStorage.getItem('answer');
+    const selection = $('input[name=radioAnswer]:checked').val();
 
+    if (selection == correctAnswer)
+    {
+        correct += 1;
+        $('#correct').prop('innerText', 'Correct: ' + correct);
+    }
+    else
+    {
+        incorrect += 1;
+        $('#incorrect').prop('innerText', 'Incorrect: ' + incorrect);
+    }
+
+    localStorage.setItem('answer', JSON.stringify(0));
 }
 
 function getListOfQuestions()
