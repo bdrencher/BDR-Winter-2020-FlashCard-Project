@@ -10,111 +10,132 @@
         <title>CS Quiz - Ben Rencher</title>
     </head>
     <body>
-        <h1>Quiz Yourself</h1>
+        <header>
+            <h1>Quiz Yourself</h1>
+        </header>
+        <div id="mainContent">
+            <div id="contentGrid" class="answerBlock">
+                <div class="contentBox" id="questionBox">
+                    <h3>Question</h3>
+                    <h4 id="questionBoxName"></h4>
+                    <p id="questionBoxText"></p>
+                </div>
 
-        <div id="contentGrid">
-            <div class="contentBox" id="questionBox">
-                <h3>Question</h3>
-                <h4 id="questionBoxName"></h4>
-                <p id="questionBoxText"></p>
+                <div class="contentBox" id="answerBox">
+                    <h3>Answers</h3>
+                    <div id="answers">
+                        <div class="answerLine">
+                            <input type="radio" name="radioAnswer" value="1"><p id="answerOneText" class="inline"></p>
+                        </div>
+                        <div class="answerLine">
+                            <input type="radio" name="radioAnswer" value="2"><p id="answerTwoText" class="inline"></p>
+                        </div>
+                        <div class="answerLine">
+                            <input type="radio" name="radioAnswer" value="3"><p id="answerThreeText" class="inline"></p>
+                        </div>
+                        <div class="answerLine">
+                            <input type="radio" name="radioAnswer" value="4"><p id="answerFourText" class="inline"></p>
+                        </div>
+                    </div> 
+                </div>
             </div>
 
-            <div class="contentBox" id="answerBox">
-                <h3>Answers</h3>
-                <div id="answers">
-                    <div class="answerLine">
-                        <input type="radio" name="radioAnswer" value="1"><p id="answerOneText" class="inline"></p>
-                    </div>
-                    <div class="answerLine">
-                        <input type="radio" name="radioAnswer" value="2"><p id="answerTwoText" class="inline"></p>
-                    </div>
-                    <div class="answerLine">
-                        <input type="radio" name="radioAnswer" value="3"><p id="answerThreeText" class="inline"></p>
-                    </div>
-                    <div class="answerLine">
-                        <input type="radio" name="radioAnswer" value="4"><p id="answerFourText" class="inline"></p>
-                    </div>
-                </div> 
+            <div id="contentButtons" class="answerBlock">
+                <button class="actionButton" onclick="submitAnswer()">Submit Answer</button>
+                <button class="actionButton" onclick="getNextQuestion()">Next/Skip</button>
             </div>
-        </div>
 
-        <div id="contentButtons">
-            <button class="actionButton" onclick="submitAnswer()">Submit Answer</button>
-            <button class="actionButton" onclick="getNextQuestion()">Next/Skip</button>
-        </div>
+            <div id="stats" class="answerBlock">
+                <p id="correct">Correct: 0</p>
+                <p id="incorrect">Incorrect: 0</p>
+                <button class="actionButton" onclick="resetScores()">Reset Scores</button>
+            </div>
+            
+            <h3 class="sectionHeader">Add a Question</h3>
+            <div id="inputFlexBox">
+                <div class="addInput">
+                    <label for="qName">Question Name:</label>
+                    <input type="text" id="questionName" name="qName">
+                </div>
+                <div class="addInput">
+                    <label for="questionText">Enter the question text:</label>
+                    <input type="textarea" id="questionTextInput" name="questionText">
+                </div>
+                <div class="addInput">
+                    <label for="firstAnswer">Answer 1:</label>
+                    <input type="text" id="firstAnswerInput" name="firstAnswer">
+                </div>
+                <div class="addInput">
+                    <label for="secondAnswer">Answer 2:</label>
+                    <input type="text" id="secondAnswerInput" name="secondAnswer">
+                </div>
+                <div class="addInput">
+                    <label for="thirdAnswer">Answer 3:</label>
+                    <input type="text" id="thirdAnswerInput" name="thirdAnswer">
+                </div>
+                <div class="addInput">
+                    <label for="fourthAnswer">Answer 4:</label>
+                    <input type="text" id="fourthAnswerInput" name="fourthAnswer">
+                </div>
+                <div class="addInput">
+                    <input type="radio" value="1" name="correctAnswer">
+                    <input type="radio" value="2" name="correctAnswer">
+                    <input type="radio" value="3" name="correctAnswer">
+                    <input type="radio" value="4" name="correctAnswer">
+                </div>
 
-        <div id="stats">
-            <p id="correct">Correct: 0</p>
-            <p id="incorrect">Incorrect: 0</p>
-            <button class="actionButton" onclick="resetScores()">Reset Scores</button>
-        </div>
-        
-        <h3>Add a question</h3>
-        <div>
-            <label for="qName">Question Name:</label>
-            <input type="text" id="questionName" name="qName">
-
-            <label for="questionText">Enter the question text:</label>
-            <input type="textarea" id="questionTextInput" name="questionText">
-
-            <label for="firstAnswer">Answer 1:</label>
-            <input type="text" id="firstAnswerInput" name="firstAnswer">
-
-            <label for="secondAnswer">Answer 2:</label>
-            <input type="text" id="secondAnswerInput" name="secondAnswer">
-
-            <label for="thirdAnswer">Answer 3:</label>
-            <input type="text" id="thirdAnswerInput" name="thirdAnswer">
-
-            <label for="fourthAnswer">Answer 4:</label>
-            <input type="text" id="fourthAnswerInput" name="fourthAnswer">
-
-            <input type="radio" value="1" name="correctAnswer">
-            <input type="radio" value="2" name="correctAnswer">
-            <input type="radio" value="3" name="correctAnswer">
-            <input type="radio" value="4" name="correctAnswer">
-
-            <button class="actionButton" onclick="addAQuestion(); validateInput()">Add question</button>
-        </div>
-
-        <div>
-            <h3>Question Details</h3>
-            <p>The fields below can be used to view the question you wish to delete or
-                make updates to the question. Click Update Question when finished making changes
-            </p>
+                <button class="actionButton" onclick="addAQuestion(); validateInput()">Add question</button>
+            </div>
 
             <div>
-                <select id="questionDropdown" onchange="populateUpdateFields()">
-                    <option value=none>Please select a question to delete or edit</option>
-                </select>
-                <button class="actionButton" onclick="deleteAQuestion()">Delete Question</button>
-                <button class="actionButton" onclick="updateAQuestion()">Update Question</button>
+                <h3 class="sectionHeader">Question Details</h3>
+                <div id="updateDetails">
+                    <p>The fields below can be used to view the question you wish to delete or
+                        make updates to the question. Click Update Question when finished making changes
+                    </p>
+
+                    <div>
+                        <select id="questionDropdown" onchange="populateUpdateFields()">
+                            <option value=none>Please select a question to delete or edit</option>
+                        </select>
+                        <button class="actionButton" onclick="deleteAQuestion()">Delete Question</button>
+                        <button class="actionButton" onclick="updateAQuestion()">Update Question</button>
+                    </div>
+                </div>
+                <div id="inputFlexBox">
+                    <div class="updateInput">
+                        <label for="updateQName">Name:</label>
+                        <input type="text" id="updateQuestionName" name="updateQName">
+                    </div>
+                    <div class="updateInput">
+                        <label for="updateQText">Text:</label>
+                        <input type="text" id="updateQuestionText" name="updateQText">
+                    </div>
+                    <div class="updateInput">
+                        <label for="updateAOne">First Answer:</label>
+                        <input type="text" id="updateAnswerOne" name="updateAOne">
+                    </div> 
+                    <div class="updateInput">
+                        <label for="updateATwo">Second Answer:</label>
+                        <input type="text" id="updateAnswerTwo" name="updateATwo">
+                    </div> 
+                    <div class="updateInput">
+                        <label for="updateAThree">Third Answer:</label>
+                        <input type="text" id="updateAnswerThree" name="updateAThree">
+                    </div>
+                    <div class="updateInput">
+                        <label for="updateAFour">Fourth Answer:</label>
+                        <input type="text" id="updateAnswerFour" name="updateAFour">
+                    </div>
+                    <div class="updateInput">
+                        <input type="radio" value="1" name="updateCorrectAnswer">
+                        <input type="radio" value="2" name="updateCorrectAnswer">
+                        <input type="radio" value="3" name="updateCorrectAnswer">
+                        <input type="radio" value="4" name="updateCorrectAnswer">
+                    </div>
+                </div>
             </div>
-
-            <label for="updateQName">Name:</label>
-            <input type="text" id="updateQuestionName" name="updateQName">
-
-            <label for="updateQText">Text:</label>
-            <input type="text" id="updateQuestionText" name="updateQText">
-
-            <label for="updateAOne">First Answer:</label>
-            <input type="text" id="updateAnswerOne" name="updateAOne">
-
-            <label for="updateATwo">Second Answer:</label>
-            <input type="text" id="updateAnswerTwo" name="updateATwo">
-
-            <label for="updateAThree">Third Answer:</label>
-            <input type="text" id="updateAnswerThree" name="updateAThree">
-
-            <label for="updateAFour">Fourth Answer:</label>
-            <input type="text" id="updateAnswerFour" name="updateAFour">
-
-            <input type="radio" value="1" name="updateCorrectAnswer">
-            <input type="radio" value="2" name="updateCorrectAnswer">
-            <input type="radio" value="3" name="updateCorrectAnswer">
-            <input type="radio" value="4" name="updateCorrectAnswer">
         </div>
-
     </body>
 
 </html>
