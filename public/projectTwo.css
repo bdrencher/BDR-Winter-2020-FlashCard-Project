@@ -58,7 +58,8 @@ footer a:visited {
 }
 
 #contentButtons {
-    margin-left: 60%;
+    margin-left: 50%;
+    margin-top: 5px;
 }
 
 #inputFlexBox {
@@ -92,4 +93,16 @@ label textArea {
     margin-right: 0;
     padding-top: 8px;
     padding-bottom: 8px;
+}
+
+.actionButton {
+    background-color: seagreen;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px
+}
+
+.actionButton:hover {
+    background-color: darkgreen;
 }
