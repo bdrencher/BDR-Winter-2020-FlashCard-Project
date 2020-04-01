@@ -50,43 +50,46 @@
                 <p id="incorrect">Incorrect: 0</p>
                 <button class="actionButton" onclick="resetScores()">Reset Scores</button>
             </div>
-            
+
+<!----------------- ADD A QUESTION -------------------->
             <h3 class="sectionHeader">Add a Question</h3>
             <div id="inputFlexBox">
                 <div class="addInput">
                     <label for="qName">Question Name:</label>
-                    <input type="text" id="questionName" name="qName">
+                    <input type="text" class="inputText" id="questionName" name="qName">
                 </div>
                 <div class="addInput">
-                    <label for="questionText">Enter the question text:</label>
-                    <input type="textarea" id="questionTextInput" name="questionText">
+                    <label for="questionText">Enter the question text:
+                    <textarea class="inputArea" id="questionTextInput" name="questionText"></textarea></label>
                 </div>
                 <div class="addInput">
                     <label for="firstAnswer">Answer 1:</label>
-                    <input type="text" id="firstAnswerInput" name="firstAnswer">
+                    <input type="text" class="inputText" id="firstAnswerInput" name="firstAnswer">
                 </div>
                 <div class="addInput">
                     <label for="secondAnswer">Answer 2:</label>
-                    <input type="text" id="secondAnswerInput" name="secondAnswer">
+                    <input type="text" class="inputText" id="secondAnswerInput" name="secondAnswer">
                 </div>
                 <div class="addInput">
                     <label for="thirdAnswer">Answer 3:</label>
-                    <input type="text" id="thirdAnswerInput" name="thirdAnswer">
+                    <input type="text" class="inputText" id="thirdAnswerInput" name="thirdAnswer">
                 </div>
                 <div class="addInput">
                     <label for="fourthAnswer">Answer 4:</label>
-                    <input type="text" id="fourthAnswerInput" name="fourthAnswer">
+                    <input type="text" class="inputText" id="fourthAnswerInput" name="fourthAnswer">
                 </div>
-                <div class="addInput">
-                    <input type="radio" value="1" name="correctAnswer">
-                    <input type="radio" value="2" name="correctAnswer">
-                    <input type="radio" value="3" name="correctAnswer">
-                    <input type="radio" value="4" name="correctAnswer">
+                <div>
+                    <p>Please mark an answer as correct:</p>
+                    1<input type="radio" value="1" name="correctAnswer">
+                    2<input type="radio" value="2" name="correctAnswer">
+                    3<input type="radio" value="3" name="correctAnswer">
+                    4<input type="radio" value="4" name="correctAnswer">
                 </div>
 
                 <button class="actionButton" onclick="addAQuestion(); validateInput()">Add question</button>
             </div>
 
+<!---------------- QUESTION DETAILS -------------------->
             <div>
                 <h3 class="sectionHeader">Question Details</h3>
                 <div id="updateDetails">
@@ -99,43 +102,49 @@
                             <option value=none>Please select a question to delete or edit</option>
                         </select>
                         <button class="actionButton" onclick="deleteAQuestion()">Delete Question</button>
-                        <button class="actionButton" onclick="updateAQuestion()">Update Question</button>
                     </div>
                 </div>
                 <div id="inputFlexBox">
                     <div class="updateInput">
                         <label for="updateQName">Name:</label>
-                        <input type="text" id="updateQuestionName" name="updateQName">
+                        <input type="text" class="inputText" id="updateQuestionName" name="updateQName">
                     </div>
                     <div class="updateInput">
-                        <label for="updateQText">Text:</label>
-                        <input type="text" id="updateQuestionText" name="updateQText">
+                        <label for="updateQText">Text:
+                        <textarea class="inputArea" id="updateQuestionText" name="updateQText"></textarea></label>
                     </div>
                     <div class="updateInput">
                         <label for="updateAOne">First Answer:</label>
-                        <input type="text" id="updateAnswerOne" name="updateAOne">
+                        <input type="text" class="inputText" id="updateAnswerOne" name="updateAOne">
                     </div> 
                     <div class="updateInput">
                         <label for="updateATwo">Second Answer:</label>
-                        <input type="text" id="updateAnswerTwo" name="updateATwo">
+                        <input type="text" class="inputText" id="updateAnswerTwo" name="updateATwo">
                     </div> 
                     <div class="updateInput">
                         <label for="updateAThree">Third Answer:</label>
-                        <input type="text" id="updateAnswerThree" name="updateAThree">
+                        <input type="text" class="inputText" id="updateAnswerThree" name="updateAThree">
                     </div>
                     <div class="updateInput">
                         <label for="updateAFour">Fourth Answer:</label>
-                        <input type="text" id="updateAnswerFour" name="updateAFour">
+                        <input type="text" class="inputText" id="updateAnswerFour" name="updateAFour">
                     </div>
                     <div class="updateInput">
-                        <input type="radio" value="1" name="updateCorrectAnswer">
-                        <input type="radio" value="2" name="updateCorrectAnswer">
-                        <input type="radio" value="3" name="updateCorrectAnswer">
-                        <input type="radio" value="4" name="updateCorrectAnswer">
+                        <p>Please mark an answer as correct:</p>
+                        1<input type="radio" value="1" name="updateCorrectAnswer">
+                        2<input type="radio" value="2" name="updateCorrectAnswer">
+                        3<input type="radio" value="3" name="updateCorrectAnswer">
+                        4<input type="radio" value="4" name="updateCorrectAnswer">
                     </div>
+                    <button class="actionButton" onclick="updateAQuestion()">Update Question</button>
                 </div>
             </div>
         </div>
+        <br>
+        <footer>
+            <p>Experiencing problems? Please email <a href="mailto:ren18012@byui.edu">Ben Rencher</a> for
+                help</p>
+        </footer>
     </body>
 
 </html>
