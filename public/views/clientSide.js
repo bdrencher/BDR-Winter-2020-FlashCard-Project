@@ -89,7 +89,7 @@ function getNextQuestion()
     });
 }
 
-// load up the first question on page load
+// get list of questions on page load
 $( document ).ready(getNextQuestion());
 
 function submitAnswer()
@@ -138,6 +138,9 @@ function getListOfQuestions()
         populateDropdown(idList, nameList);
     });
 }
+
+// to populate the dropdown and get the questions
+$(document).ready(getListOfQuestions());
 
 function populateDropdown(ids, names)
 {
