@@ -89,6 +89,9 @@ function getNextQuestion()
     });
 }
 
+// load up the first question on page load
+$( document ).ready(getNextQuestion());
+
 function submitAnswer()
 {
     let correct = JSON.parse(localStorage.getItem('correct'));
@@ -148,9 +151,6 @@ function populateDropdown(ids, names)
         $('#questionDropdown').append(new Option(names[i], ids[i]));
     }
 }
-
-// get list of questions on page load
-$( document ).ready(getListOfQuestions());
 
 function deleteAQuestion()
 {
