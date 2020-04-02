@@ -26,7 +26,7 @@ footer p {
     margin-left: 15px;
 }
 
-h1, h3 {
+h1 {
     margin-left: 15px;
 }
 
@@ -98,7 +98,7 @@ label textArea {
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
-    margin-left: 0;
+    margin-left: 15px;
     margin-right: 0;
     padding-top: 8px;
     padding-bottom: 8px;
