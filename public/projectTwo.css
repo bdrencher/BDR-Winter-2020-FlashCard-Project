@@ -122,3 +122,22 @@ label textArea {
     margin-right: 15px;
 }
 
+.correctAnimation {
+    animation-name: greenFade;
+    animation-duration: 3s;
+}
+
+@keyframes greenFade {
+    0% {color: green;}
+    100% {color: black;}
+}
+
+.incorrectAnimation {
+    animation-name: redFade;
+    animation-duration: 3s;
+}
+
+@keyframes redFade {
+    0% {color: red;}
+    100% {color: black;}
+}

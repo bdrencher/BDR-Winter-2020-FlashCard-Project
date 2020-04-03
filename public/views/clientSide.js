@@ -61,6 +61,9 @@ function populateUpdateFields()
 
 function getNextQuestion()
 {   
+    $('#correct').removeClass("correctAnimation");
+    $('#incorrect').removeClass("incorrectAnimation");
+
     localStorage.setItem('isAnswered', JSON.stringify(false));
     let id = null;
     $.get('/getQuestionList', function( data ) {
@@ -103,6 +106,7 @@ function submitAnswer()
     {
         correct += 1;
         $('#correct').prop('innerText', 'Correct: ' + correct);
+        $('#correct').addClass("correctAnimation");
         localStorage.setItem('correct', JSON.stringify(correct));
     }
     else if (JSON.parse(localStorage.getItem('isAnswered')))
@@ -113,6 +117,7 @@ function submitAnswer()
     {
         incorrect += 1;
         $('#incorrect').prop('innerText', 'Incorrect: ' + incorrect);
+        $('#incorrect').addClass("incorrectAnimation");
         localStorage.setItem('incorrect', JSON.stringify(incorrect));
     }
 
